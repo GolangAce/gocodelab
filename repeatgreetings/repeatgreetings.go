@@ -17,9 +17,11 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
+
+		for i := 0; i < repeatCount; i++ {
+			fmt.Println("Hello Gopher!")
+		}
+
 	}
 
-	for i := 0; i < repeatCount; i++ {
-		fmt.Println("Hello Gopher!")
-	}
 }
