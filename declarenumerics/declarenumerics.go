@@ -16,8 +16,8 @@ func main() {
 	var myOtherFloatingPointNumber float64 = 306.96969696
 	fmt.Println("Sum of my floating point numbers: ", myFloatingPointNumber+myOtherFloatingPointNumber)
 
-	// We can omit the type, Go will figure out what the type is
-	var x, y, z = 0, 1, 2
+	// Go will figure out what the type is
+	x, y, z := 0, 1, 2
 	fmt.Printf("x: %d\ty: %d\tz: %d\n", x, y, z)
 
 	// Example of a complex number
