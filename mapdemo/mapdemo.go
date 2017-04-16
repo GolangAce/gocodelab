@@ -25,6 +25,14 @@ func printSortedNationCapitalsMap(capitalsMap map[string]string) {
 
 }
 
+func printNationCapitalsMap(capitalsMap map[string]string) {
+
+	for key, value := range capitalsMap {
+		fmt.Println("The capital of", key, "is ", value)
+	}
+
+}
+
 func nationCapitalsExample() {
 
 	// Note: In Go, maps have no contract to maintain the order of the keys
@@ -47,14 +55,6 @@ func nationCapitalsExample() {
 	fmt.Println("Print the map sorted by key (nation name):")
 	printSortedNationCapitalsMap(nationCapitals)
 	fmt.Println("\n")
-}
-
-func printNationCapitalsMap(capitalsMap map[string]string) {
-
-	for key, value := range capitalsMap {
-		fmt.Println("The capital of", key, "is ", value)
-	}
-
 }
 
 func main() {

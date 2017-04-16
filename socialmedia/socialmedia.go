@@ -33,15 +33,15 @@ type AuditableContent struct {
 
 // This is the type that represents a Social Media Post
 type Post struct {
-	AuditableContent
-	Caption      string
-	MessageBody  string
-	URL          string
-	ImageURI     string
-	ThumbnailURI string
-	Keywords     []string
-	Likers       []string
-	AuthorMood   MoodState
+	AuditableContent // Embedded type
+	Caption          string
+	MessageBody      string
+	URL              string
+	ImageURI         string
+	ThumbnailURI     string
+	Keywords         []string
+	Likers           []string
+	AuthorMood       MoodState
 }
 
 // Map that holds the various mood states with keys to serve as
@@ -57,6 +57,5 @@ func init() {
 func NewPost(username string, mood MoodState, caption string, messageBody string, url string, imageURI string, thumbnailURI string, keywords []string) *Post {
 
 	auditableContent := AuditableContent{CreatedBy: username, TimeCreated: time.Now()}
-	post := Post{Caption: caption, MessageBody: messageBody, URL: url, ImageURI: imageURI, ThumbnailURI: thumbnailURI, AuthorMood: mood, Keywords: keywords, AuditableContent: auditableContent}
-	return &post
+	return &Post{Caption: caption, MessageBody: messageBody, URL: url, ImageURI: imageURI, ThumbnailURI: thumbnailURI, AuthorMood: mood, Keywords: keywords, AuditableContent: auditableContent}
 }

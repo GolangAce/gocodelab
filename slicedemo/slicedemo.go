@@ -20,7 +20,8 @@ func populateIntegerSlice(input []int) {
 func changingLineupExample() {
 
 	// Declaring and initializing a slice representing the original band members of
-	// rock band, INXS using a slice literal
+	// rock band, INXS using a slice literal (notice it looks just like an array literal
+	// except without the element count)
 	fmt.Println("The original INXS lineup:")
 	inxs := []string{"Michael", "Andrew", "Jon", "Tim", "Kirk", "Garry"}
 	fmt.Println(inxs, "\n")
@@ -45,11 +46,9 @@ func main() {
 	fmt.Printf("Contents of mySlice: %v\n\n", mySlice)
 
 	populateIntegerSlice(mySlice)
-	fmt.Printf("Contents of mySlice: %v\n\n", mySlice)
-
+	fmt.Printf("Contents of mySlice: %v\n", mySlice)
 	// We can use the len() built-in function to return the length of the slice
-	fmt.Println("The length of mySlice is: ", len(mySlice), "\n")
-
+	fmt.Println("The length of mySlice is: ", len(mySlice))
 	// We can use the cap() built-in function to return the capacity of the slice
 	fmt.Println("The capacity of mySlice is: ", cap(mySlice), "\n")
 
@@ -57,7 +56,8 @@ func main() {
 	// capacity of the slice
 	fmt.Println("After adding a new element to mySlice...\n")
 	mySlice = append(mySlice, 18)
-	fmt.Println("The length of mySlice is: ", len(mySlice), "\n")
+	fmt.Printf("Contents of mySlice: %v\n", mySlice)
+	fmt.Println("The length of mySlice is: ", len(mySlice))
 	fmt.Println("The capacity of mySlice is: ", cap(mySlice), "\n")
 
 	// This short hand notation allows us to get the elements from index 1 up to
