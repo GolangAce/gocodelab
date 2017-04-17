@@ -10,6 +10,7 @@ import (
 func giveMeARandomShape() interface{} {
 
 	var shape interface{}
+	var randomShapesSlice []interface{} = make([]interface{}, 2)
 
 	// Seed the random generator
 	s := rand.NewSource(time.Now().UnixNano())
@@ -19,13 +20,17 @@ func giveMeARandomShape() interface{} {
 	randomNumber := r.Intn(2)
 	fmt.Println("Random Number: ", randomNumber)
 
-	if randomNumber == 0 {
-		// Let's make a new rectangle
-		shape = simpleshape.NewRectangle(3, 6)
-	} else {
-		// Let's make a new triangle
-		shape = simpleshape.NewTriangle(9, 18)
-	}
+	// Let's make a new rectangle
+	rectangle := simpleshape.NewRectangle(3, 6)
+
+	// Let's make a new triangle
+	triangle := simpleshape.NewTriangle(9, 18)
+
+	// Let's store the shapes into a slice data structure
+	randomShapesSlice[0] = rectangle
+	randomShapesSlice[1] = triangle
+	shape = randomShapesSlice[randomNumber]
+
 	return shape
 }
 
