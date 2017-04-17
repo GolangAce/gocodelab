@@ -26,11 +26,11 @@ func main() {
 // A function to print the 3x4 matrix in a more pretty manner
 func printThreeByFourMatrix(inputMatrix [3][4]int) {
 
-	columnLength := len(inputMatrix)
-	rowLength := len(inputMatrix[0])
+	rowLength := len(inputMatrix)
+	columnLength := len(inputMatrix[0])
 
-	for i := 0; i < columnLength; i++ {
-		for j := 0; j < rowLength; j++ {
+	for i := 0; i < rowLength; i++ {
+		for j := 0; j < columnLength; j++ {
 			fmt.Printf("%5d ", inputMatrix[i][j])
 		}
 		fmt.Println()
