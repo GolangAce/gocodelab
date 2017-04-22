@@ -14,7 +14,6 @@ func printGreetings(source string) {
 func main() {
 
 	go printGreetings("goroutine")
-	//time.Sleep(time.Millisecond * 135)
 	printGreetings("main function")
 
 }

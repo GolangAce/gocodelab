@@ -83,6 +83,7 @@ func main() {
 	// this interrupt channel
 	interrupt := make(chan os.Signal, 1)
 	signal.Notify(interrupt, os.Interrupt)
+
 	go pi(5000)
 
 	// This anonymous function is responsible for updating the scoreboard
