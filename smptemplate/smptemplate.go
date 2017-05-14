@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"gocodelab/socialmedia"
 	"html/template"
+	"log"
 	"net/http"
 )
 
@@ -19,8 +20,11 @@ func displaySocialMediaPostHandler(w http.ResponseWriter, r *http.Request) {
 // Template rendering function
 func renderTemplate(w http.ResponseWriter, templateFile string, templateData interface{}) {
 
-	t, _ := template.ParseFiles(templateFile)
-	t.Execute(w, templateData.(*socialmedia.Post))
+	t, err := template.ParseFiles(templateFile)
+	if err != nil {
+		log.Fatal("Error encountered while parsing the template: ", err)
+	}
+	t.Execute(w, templateData)
 }
 
 func main() {
