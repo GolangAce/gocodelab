@@ -5,9 +5,9 @@ import (
 	"net/http"
 )
 
-func newExampleContext(ctx context.Context, req *http.Request) context.Context {
+func newExampleContext(ctx context.Context, r *http.Request) context.Context {
 
-	fooID := req.Header.Get("X-Foo-ID")
+	fooID := r.Header.Get("X-Foo-ID")
 	if fooID == "" {
 		fooID = "bar"
 	}
