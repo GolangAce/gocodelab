@@ -1,0 +1,42 @@
+<html>
+<head>
+<title>GopherFace - Sign Up</title>
+</head>
+<body>
+	<h1>GopherFace - Sign Up</h1>
+
+	<div class="formContainer">
+
+		<form action="/sign-up" method="POST">
+
+		<p><span class="error_msg" id="registration_error"> </span></p>
+
+		<p><input placeholder="Username" type="text" name="username" value="{{.Fields.username}}"></p>
+		<p><span class="error_msg" id="usernameError">{{.Errors.usernameError}}</span></p>
+
+		<p><input placeholder="First Name" type="text" name="firstName" value="{{.Fields.firstName}}"></p>
+		<p><span class="error_msg" id="firstNameError">{{.Errors.firstNameError}}</span></p>
+
+		<p><input placeholder="Last Name" type="text" name="lastName" value="{{.Fields.lastName}}"></p>
+		<p><span class="error_msg" id="lastNameError">{{.Errors.lastNameError}}</span></p>
+
+		<p><input placeholder="E-mail" type="text" name="email" value="{{.Fields.email}}"></p>
+		<p><span class="error_msg" id="emailError">{{.Errors.emailError}}</span></p>
+
+		<p><input placeholder="Password" type="password" name="password"></p>
+		<p><span class="error_msg" id="passwordError">{{.Errors.passwordError}}</span></p>
+
+		<p><input placeholder="Confirm Password" type="password" name="confirmPassword"></p>
+		<p><span class="error_msg" id="confirmPasswordError">{{.Errors.confirmPasswordError}}</span></p>
+
+		<p><input type="submit" value="Submit" /></p>
+
+	</form>
+
+
+	</div>
+
+</body>
+</html>
+
+
