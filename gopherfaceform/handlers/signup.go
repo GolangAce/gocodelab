@@ -13,7 +13,7 @@ type SignUpForm struct {
 
 // DisplaySignUpForm displays the Sign Up form
 func DisplaySignUpForm(w http.ResponseWriter, r *http.Request, s *SignUpForm) {
-	RenderTemplate(w, "./templates/signup.html", s)
+	RenderTemplate(w, "./templates/signupform.html", s)
 }
 
 func DisplayConfirmation(w http.ResponseWriter, r *http.Request, s *SignUpForm) {
@@ -115,7 +115,6 @@ func SignUpHandler(w http.ResponseWriter, r *http.Request) {
 	s.FieldNames = []string{"username", "firstName", "lastName", "email"}
 	s.Fields = make(map[string]string)
 	s.Errors = make(map[string]string)
-	//	s.Errors[""] = "test"
 
 	switch r.Method {
 

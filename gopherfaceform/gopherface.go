@@ -2,11 +2,12 @@ package main
 
 import (
 	//"gocodelab/gopherface/endpoints"
+	"gocodelab/gopherface/middleware"
 	"gocodelab/gopherfaceform/handlers"
-	//"gocodelab/gopherface/middleware"
 	"net/http"
+	"os"
 
-	//ghandlers "github.com/gorilla/handlers"
+	ghandlers "github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -30,15 +31,18 @@ func main() {
 	r.HandleFunc("/foo", handlers.FooHandler)
 
 	r.HandleFunc("/signup", handlers.SignUpHandler).Methods("GET", "POST")
+	r.HandleFunc("/postpreview", handlers.PostPreviewHandler).Methods("GET", "POST")
+
+	r.PathPrefix("/static/").Handler(http.StripPrefix("/static/", http.FileServer(http.Dir("./static"))))
 
 	//r.HandleFunc("/restapi/socialmediapost/{username}", endpoints.FetchPostsEndpoint).Methods("GET")
 	//r.HandleFunc("/restapi/socialmediapost/{postid}", endpoints.CreatePostEndpoint).Methods("POST")
 	//r.HandleFunc("/restapi/socialmediapost/{postid}", endpoints.UpdatePostEndpoint).Methods("PUT")
 	//r.HandleFunc("/restapi/socialmediapost/{postid}", endpoints.DeletePostEndpoint).Methods("DELETE")
 
-	http.Handle("/", r)
+	//http.Handle("/", r)
 	//http.Handle("/", ghandlers.LoggingHandler(os.Stdout, r))
-	//http.Handle("/", middleware.PanicRecoveryHandler(ghandlers.LoggingHandler(os.Stdout, r)))
+	http.Handle("/", middleware.PanicRecoveryHandler(ghandlers.LoggingHandler(os.Stdout, r)))
 	//http.Handle("/", middleware.ContextExampleHandler(middleware.PanicRecoveryHandler(ghandlers.LoggingHandler(os.Stdout, r))))
 
 	http.ListenAndServe(WEBSERVERPORT, nil)
