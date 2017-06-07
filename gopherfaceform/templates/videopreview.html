@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="/static/css/gopherface.css" />
+</head>
+<body>
+<h1>GopherFace - Video Preview</h1>
+
+<p>&nbsp;</p>
+
+<div class="sectionContainer">
+
+	<div class="thumbnailPreview">
+		<img src="{{.thumbnailPath}}">
+
+	</div>
+
+	<div class="videoPreview">
+		<video loop autoplay width="720">
+		  <source src="{{.videoPath}}" type="video/mp4">
+		  Your browser does not support the video tag.
+		</video>
+	</div>
+
+</div>
+
+</body>
+</html>
