@@ -1,36 +1,40 @@
 <html>
 <head>
 <title>GopherFace - New Post</title>
+<link rel="stylesheet" type="text/css" href="/static/css/pure.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/gopherface.css" />
 </head>
 <body>
 	<h1>GopherFace - New Post</h1>
 
-	<div class="formContainer">
+	<div class="formContainer smpostFormContainer">
+		<form action="/postpreview" method="post" class="pure-form pure-form-aligned">
+		<fieldset>
 
-		<form action="/postpreview" method="POST">
+		<fieldset class="pure-control-group">
+			<input type="text" class="pure-input-1-2" placeholder="Caption" name="caption" value="{{.Fields.caption}}">
+			<span id="confirmPasswordError" class="pure-form-message-inline">{{.Errors.captionError}}</span>
+		</fieldset>
 
-		<p><input placeholder="Caption" type="text" name="caption" value="{{.Fields.caption}}"></p>
-		<p><span class="error_msg" id="captionError">{{.Errors.captionError}}</span></p>
+		<fieldset class="pure-control-group">
+			<textarea id="messageBody" class="pure-input-1-2" placeholder="What's on your mind, Gopher?" name="messageBody">{{.Fields.messageBody}}</textarea>
+			<span id="messageBodyError" class="pure-form-message-inline">{{.Errors.messageBodyError}}</span>
+		</fieldset>
 
-		<textarea name="messageBody" placeholder="What's on your mind, Gopher?">{{.Fields.messageBody}}</textarea>
-		<p><span class="error_msg" id="messageBodyError">{{.Errors.messageBodyError}}</span></p>
-Current Mood: {{.CurrentMood}}
-		<p><label for="mood"></p>
+		<fieldset class="pure-group">
+		<label for="mood">Mood</label>
 		<select id="mood" name="mood"> 
 		   {{range $key, $value := .Moods}}
-			 <option value="{{ $value }}" {{if eq $value $.CurrentMood}}selected{{end}}>{{index $.MoodEmoji $key}} {{ $key }}</option>
+		   <option value="{{ $value }}" {{if eq $value $.CurrentMood}}selected{{end}}>{{index $.MoodEmoji $key}} {{ $key }}</option>
 		   {{end}}
 		</select>
+		</fieldset>
 
-		<p><input type="hidden" name="author" value="Anonymous Gopher"></p>
+		<input type="submit" class="pure-button pure-input-1-2 pure-button-primary" value="Post">
 
-		<p><input type="submit" value="Post" /></p>
-
-	</form>
-
-
+		</fieldset>
+		</form>
 	</div>
-
 </body>
 </html>
 

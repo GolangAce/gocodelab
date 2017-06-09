@@ -1,39 +1,59 @@
 <html>
 <head>
 <title>GopherFace - Sign Up</title>
+<link rel="stylesheet" type="text/css" href="/static/css/pure.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/gopherface.css" />
 </head>
 <body>
 	<h1>GopherFace - Sign Up</h1>
 
 	<div class="formContainer">
+	<form action="/signup" method="POST" class="pure-form pure-form-aligned">
+		<fieldset>
 
-		<form action="/signup" method="POST">
+			<div class="pure-control-group">
+				<label for="name">Username</label>
+				<input id="username" type="text" placeholder="Username" name="username" value="{{.Fields.username}}">
+				<span id="usernameError" class="pure-form-message-inline">{{.Errors.usernameError}}</span>
+			</div>
 
-		<p><input placeholder="Username" type="text" name="username" value="{{.Fields.username}}"></p>
-		<p><span class="error_msg" id="usernameError">{{.Errors.usernameError}}</span></p>
+			<div class="pure-control-group">
+				<label for="firstName">First Name</label>
+				<input id="firstName" type="text" placeholder="First Name" name="firstName" value="{{.Fields.firstName}}">
+				<span id="firstNameError" class="pure-form-message-inline">{{.Errors.firstNameError}}</span>
+			</div>
 
-		<p><input placeholder="First Name" type="text" name="firstName" value="{{.Fields.firstName}}"></p>
-		<p><span class="error_msg" id="firstNameError">{{.Errors.firstNameError}}</span></p>
+			<div class="pure-control-group">
+				<label for="lastName">Last Name</label>
+				<input id="lastName" type="text" placeholder="Last Name" name="lastName" value="{{.Fields.lastName}}">
+				<span id="lastNameError" class="pure-form-message-inline">{{.Errors.lastNameError}}</span>
+			</div>
 
-		<p><input placeholder="Last Name" type="text" name="lastName" value="{{.Fields.lastName}}"></p>
-		<p><span class="error_msg" id="lastNameError">{{.Errors.lastNameError}}</span></p>
+			<div class="pure-control-group">
+				<label for="email">E-mail Address</label>
+				<input id="email" type="text" placeholder="E-mail Address" name="email" value="{{.Fields.email}}">
+				<span id="emailError" class="pure-form-message-inline">{{.Errors.emailError}}</span>
+			</div>
 
-		<p><input placeholder="E-mail" type="text" name="email" value="{{.Fields.email}}"></p>
-		<p><span class="error_msg" id="emailError">{{.Errors.emailError}}</span></p>
+			<div class="pure-control-group">
+				<label for="password">Password</label>
+				<input id="password" type="password" placeholder="Password" name="password" value="{{.Fields.password}}">
+				<span id="passwordError" class="pure-form-message-inline">{{.Errors.passwordError}}</span>
+			</div>
 
-		<p><input placeholder="Password" type="password" name="password"></p>
-		<p><span class="error_msg" id="passwordError">{{.Errors.passwordError}}</span></p>
+			<div class="pure-control-group">
+				<label for="name">Confirm Password</label>
+				<input id="confirmPassword" type="password" placeholder="Confirm Password" name="confirmPassword" value="{{.Fields.confirmPassword}}">
+				<span id="confirmPasswordError" class="pure-form-message-inline">{{.Errors.confirmPasswordError}}</span>
+			</div>
 
-		<p><input placeholder="Confirm Password" type="password" name="confirmPassword"></p>
-		<p><span class="error_msg" id="confirmPasswordError">{{.Errors.confirmPasswordError}}</span></p>
+			<div class="pure-controls">
+				<input class="pure-button pure-button-primary" type="submit" value="Sign Up" />
+			</div>
 
-		<p><input type="submit" value="Submit" /></p>
-
+		</fieldset>
 	</form>
-
-
 	</div>
-
 </body>
 </html>
 

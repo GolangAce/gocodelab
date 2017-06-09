@@ -2,17 +2,29 @@ body {
 
 	font-family: arial, helvetica;
 	font-size: 12pt;
+	margin-left: 18px;
 
 }
 
 .smpostContainer {
 
 	border: 1px solid #CCC;
-	width: 504px;
+	width: 540px;
 	min-height: 108px;
-	margin: auto;
 	padding: 18px;
 	box-shadow: 1px 1px 3px #888;
+}
+
+.smpostFormContainer {
+	width: 720px;
+}
+
+.uploadFormContainer {
+	width: 720px;
+}
+
+#messageBody {
+	min-height: 207px;
 }
 
 .author {
@@ -46,4 +58,25 @@ body {
 .msgBody {
 	margin-top: 27px;
 
+}
+
+/* pure overrides */
+.pure-form-message-inline {
+	color: red !important;
+}
+
+.pure-control-group label, label{
+	color: gray;
+	font-weight: bold;
+	font-size: 0.93em;
+}
+
+.imageContainer {
+
+	display: inline;
+	margin-right: 27px;
+}
+
+.videoContainer {
+	display: inline;
 }
