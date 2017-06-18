@@ -17,6 +17,7 @@ func NewMySQLDatastore(dataSourceName string) (*MySQLDatastore, error) {
 	connection, err := sql.Open("mysql", dataSourceName)
 
 	if err != nil {
+		log.Fatal(err)
 		return nil, err
 	}
 
@@ -66,6 +67,11 @@ func (m *MySQLDatastore) GetUser(username string) (*models.User, error) {
 	row := stmt.QueryRow(username)
 	u := models.User{}
 	err = row.Scan(&u.UUID, &u.Username, &u.FirstName, &u.LastName, &u.Email, &u.PasswordHash, &u.TimestampCreated, &u.TimestampModified)
+	if err != nil {
+		log.Print(err)
+		return nil, err
+	}
+
 	return &u, err
 }
 

@@ -1,7 +1,6 @@
 package datastore
 
 import (
-	"fmt"
 	"gocodelab/gopherfacedb/models"
 
 	mgo "gopkg.in/mgo.v2"
@@ -46,7 +45,6 @@ func (m *MongoDBDatastore) GetUser(username string) (*models.User, error) {
 	if err != nil {
 		return nil, err
 	}
-	fmt.Println("created")
 	return &u, nil
 
 }

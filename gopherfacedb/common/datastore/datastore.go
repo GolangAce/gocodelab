@@ -1,6 +1,9 @@
 package datastore
 
-import "gocodelab/gopherfacedb/models"
+import (
+	"errors"
+	"gocodelab/gopherfacedb/models"
+)
 
 type Datastore interface {
 	CreateUser(user *models.User) error
@@ -23,8 +26,8 @@ func NewDatastore(datastoreType int, dbConnectionString string) (Datastore, erro
 		return NewMongoDBDatastore(dbConnectionString)
 	case REDIS:
 		return NewRedisDatastore(dbConnectionString)
-
+	default:
+		return nil, errors.New("The datastore you specified does not exist!")
 	}
 
-	return nil, nil
 }

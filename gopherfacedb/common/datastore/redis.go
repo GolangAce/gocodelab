@@ -3,7 +3,6 @@ package datastore
 import (
 	"encoding/json"
 	"errors"
-	"fmt"
 	"gocodelab/gopherfacedb/models"
 	"log"
 
@@ -53,8 +52,6 @@ func (r *RedisDatastore) GetUser(username string) (*models.User, error) {
 
 	userJSON, err := r.Cmd("GET", "user:"+username).Str()
 
-	fmt.Println("userJSON: ", userJSON)
-
 	if err != nil {
 		log.Print(err)
 
@@ -71,5 +68,5 @@ func (r *RedisDatastore) GetUser(username string) (*models.User, error) {
 
 func (r *RedisDatastore) Close() {
 
-	r.Close()
+	r.Empty()
 }
